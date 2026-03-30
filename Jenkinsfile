@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // 1. Docker Variables
-        DOCKER_USER = "your-dockerhub-username" // CHANGE THIS!
+        DOCKER_USER = "pankajgautam04" // CHANGE THIS!
         IMAGE_NAME = "${DOCKER_USER}/my-custom-app"
         IMAGE_TAG = "v${env.BUILD_ID}" // Automatically uses Jenkins build # (e.g., v1, v2)
         
