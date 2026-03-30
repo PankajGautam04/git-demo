@@ -20,5 +20,19 @@ pipeline {
                 echo "Building the git-demo application..."
             }
         }
+        stage('Update GitOps Config') {
+            steps {
+                // Pseudo-code for the Jenkins handoff
+                sh '''
+                git clone https://github.com/PankajGautam04/git-demo-config.git
+                cd git-demo-config
+                # Update the deployment.yaml with the new Docker image tag
+                sed -i 's/myapp:v1/myapp:v2/g' deployment.yaml
+                git add deployment.yaml
+                git commit -m "Update image to v2"
+                git push origin main
+                '''
+            }
+        }
     }
 }
